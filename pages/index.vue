@@ -15,17 +15,13 @@ export default {
   components: {
     Signin,
   },
-  asyncData (context) {
-    return {
-      isLogin:false,
-      userData:null}
-  },
   mounted: function() {
     firebase.auth().onAuthStateChanged(user => {
       if (user) {
+        // Sign in success
         this.$router.push('MyPage')
       } else {
-        //
+        // Error handle
       };
     });
   },
